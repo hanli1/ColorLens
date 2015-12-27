@@ -1,0 +1,26 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black" tools:context="app.sunstreak.colorlens.StartUpFragment">
+
+    <ImageButton
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_camera_100dp"
+        android:tint="@color/gray_tint"
+        android:scaleType="centerCrop"
+        android:id="@+id/fragment_start_up_activate_camera"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="70dp"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:text="Take a photo for color analysis!"/>
+
+</FrameLayout>
