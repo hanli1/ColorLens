@@ -67,14 +67,14 @@ public class ImageProcessor {
         }
         return ret;
     }
-    public static double getHueFromRGB(double red, double green, double blue)
+    public static double getHueFromRGB(int red, int green, int blue)
     {
         float[] HSV = new float[3];
-        Color.colorToHSV(new Color(red, green, blue), HSV);
+        Color.RGBToHSV(red, green, blue, HSV);
         return HSV[0];
-//        double r = red/255;
-//        double g = green/255;
-//        double b = blue/255;
+//        double r = red/255.0;
+//        double g = green/255.0;
+//        double b = blue/255.0;
 //        double[] a = {r, g, b};
 //        Arrays.sort(a);
 //        double min = a[0];
@@ -101,7 +101,8 @@ public class ImageProcessor {
 //        }
 //        return hue;
     }
-    private double calculateDifferenceWithRGB(int red, int green, int blue, JSONObject curr, redMultiple, greenMultiple, blueMultiple)
+    private static double calculateDifferenceWithRGB(int red, int green, int blue, JSONObject curr,
+                                                     int redMultiple, int greenMultiple, int blueMultiple)
     {
         int redDiff = Math.abs(red - curr.optInt("x"));
         int greenDiff = Math.abs(green - curr.optInt("y"));
@@ -109,7 +110,7 @@ public class ImageProcessor {
         double avg = (redDiff* redMultiple + greenDiff * greenMultiple + blueDiff * blueMultiple)/3;
         return avg;
     }
-    private double calculateDifferenceWithHue(int red, int green, int blue, JSONObject curr)
+    private static double calculateDifferenceWithHue(int red, int green, int blue, JSONObject curr)
     {
         double actualHue = getHueFromRGB(red, green, blue);
         double currHue = getHueFromRGB(curr.optInt("x"), curr.optInt("y"), curr.optInt("z"));
